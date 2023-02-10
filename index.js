@@ -1,5 +1,5 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 //localhotst ou 127.0.0.1
 const DB_URL="mongodb://127.0.0.1:27017";
@@ -42,20 +42,30 @@ const itens= ["Namjoon","Jk","Jin"];
  });
 
 // EndPoint Id by ID -> [GET] /Item/:id
-app.get ("/item/:id" , function (req, res) {
+app.get ("/item/:id" , async function (req, res) {
   const id = req.params.id;
-  const item = itens [id - 1]
+  const item = await collection.findOne({_id: new ObjectId(id)});
   res.send (item);
 });
 
 // EndPoint Create -> [POST] /Item
-app.post("/item", function ( req,res){
+app.post("/item", async function ( req,res){
   //console.log (req.body)
   const item = req.body;
-  itens.push(item.nome)
-  res.send ("BTS")
-})
+ await collection.insertOne(item)
+  res.send (item);
+});
 
+//Endpoint Update -> [PUT] /Item /:id
+app.put("/item/:id", function (req,res) {
+const id = req.params.id;
+const body= req.body;
+
+ console.log(id,body);
+
+ res.send("Deu bom");
+
+});
 app.listen(3000)
 }
 
