@@ -71,6 +71,11 @@ await collection.updateOne(
  res.send("Deu bom");
 
 });
+
+// Endpoint delete-> [DELETE] /item/:id
+//dever de casa foto no celular kkkk
+
+
 app.listen(3000)
 }
 
