@@ -75,8 +75,12 @@ await collection.updateOne(
 });
 
 // Endpoint delete-> [DELETE] /item/:id
-//dever de casa foto no celular kkkk
 
+app.delete("/item/:id", async function (req,res) {
+ const id= req.params.id;
+ await collection.deleteOne({_id: new ObjectId(id)});
+ res.send("delete by ID:" + id);
+});
 
 app.listen(3000)
 }
