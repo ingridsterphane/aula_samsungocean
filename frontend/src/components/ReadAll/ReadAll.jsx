@@ -1,5 +1,12 @@
+import Card from "../Card/Card";
+import "./ReadAll.css"
+
 function ReadAll (){
-    return <div>Read All</div>
+    return <div className= "ReadAll">
+    <Card />
+    <Card />
+
+    </div>
 }
 
 export default ReadAll;
