@@ -1,10 +1,12 @@
 import "./Card.css"
 
-function Card (){
+function Card(props) {
+    console.log(props);
+    const item = props.item;
     return (
     <div className="card">
-        <h1>Namjoon</h1>
-        <img src="https://pbs.twimg.com/profile_images/1458192159279038473/I7S0CnS8_400x400.jpg"/>
+        <h1>{item.nome}</h1>
+        <img src={item.imagemUrl}/>
         </div>
     
     )
