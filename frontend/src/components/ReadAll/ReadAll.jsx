@@ -1,7 +1,9 @@
-import Card from "../Card/Card";
+import Card from "../Card/Card"
 import "./ReadAll.css"
+import { useState } from "react";
+import { useEffect } from "react";
 
-const items = [
+ const itemsMock = [
     {
         _id: "63f773a70f5f0e919a375ab2",
         nome:"Namjoon",
@@ -21,21 +23,30 @@ const items = [
         tags: ["Idol: lindo", "Amo: ele"]
     },
 
-];
+  ];
 
  function ReadAll() {
-    const items = [];
+    // userstate retorna 2 coisas:
+    // o valor do estado e a funçao que atualiza o valor do estado
 
-  async function realizarrequisicao() {
+    const [items, setItems] = useState([]);
+
     // Realizar requisição para backend obtendo a lista de itens
+    async function realizarRequisicao() {
     const url="http:localhost:3000/item";
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log(data);
-  }
+    //item.push({teste:1});
+    setItems(data);
+    }
 
-  realizarrequisicao();
+    // UseEffect
+  // 1: uma função que será executada
+  // 2: uma lista de dependências
+    useEffect(function () {
+    realizarRequisicao();
+  }, []);
 
     return <div className= "ReadAll">
         {items.map(function (item) {
@@ -43,6 +54,6 @@ const items = [
             return <Card key={"card-" + item._id} item={item} />;
         })}
     </div>
- };
+    };
 
 export default ReadAll;

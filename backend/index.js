@@ -11,11 +11,11 @@ const DB_NAME="ocean-bancodados-09-02-2023";
 async function main() {
 
 //conexão com o banco de dados
-console.log("Conectando com sucesso")
+console.log("Conectando com o banco de dados...")
 const client = await MongoClient.connect(DB_URL);
 const db = client.db(DB_NAME);
-const collection = db.collection('itens');
-console.log("Banco de dados conectado com sucesso");
+const collection = db.collection("itens");
+console.log("Banco de dados conectado com sucesso!");
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint / -> Heloo World
-app.get('/', function (req, res) {
+app.get("/", function (req, res) {
   res.send('Hello World')
 })
 
@@ -36,7 +36,7 @@ res.send ("Olá, mundo!")
 })
 
 //Lista de Informações
-const itens= ["Namjoon","Jk","Jin"];
+const itens = ["Namjoon","Jk","Jin"];
 //               0       1     2
 
 // CRUD -> Lista de Informações
@@ -55,7 +55,7 @@ app.get ("/item/:id" , async function (req, res) {
 });
 
 // EndPoint Create -> [POST] /Item
-app.post("/item", async function ( req,res){
+app.post("/item", async function ( req,res) {
   //console.log (req.body)
   const item = req.body;
  await collection.insertOne(item)
@@ -69,12 +69,10 @@ const body= req.body;
 
 //console.log(id,body);
 
-await collection.updateOne(
-  {_id: new ObjectId(id) },
-  { $set: body}
+await collection.updateOne({_id: new ObjectId(id) },{ $set: body}
 );
 
- res.send("Deu bom");
+ res.send(body);
 
 });
 
@@ -82,11 +80,13 @@ await collection.updateOne(
 
 app.delete("/item/:id", async function (req,res) {
  const id= req.params.id;
+
  await collection.deleteOne({_id: new ObjectId(id)});
- res.send("delete by ID:" + id);
+
+ res.send("Registro removido com sucesso!");
 });
 
-app.listen(3000)
+app.listen(3000);
 }
 
 main();
