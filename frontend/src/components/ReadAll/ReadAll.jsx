@@ -1,7 +1,6 @@
 import Card from "../Card/Card"
 import "./ReadAll.css"
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
  const itemsMock = [
     {
@@ -49,7 +48,7 @@ import { useEffect } from "react";
   }, []);
 
     return <div className= "ReadAll">
-        {items.map(function (item) {
+        {itemsMock.map(function (item) {
           
             return <Card key={"card-" + item._id} item={item} />;
         })}
