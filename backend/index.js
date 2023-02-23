@@ -1,5 +1,6 @@
 const express = require('express');
 const { MongoClient, ObjectId } = require('mongodb');
+const cors = require("cors");
 
 //localhotst ou 127.0.0.1
 // const DB_URL="mongodb://127.0.0.1:27017";
@@ -17,6 +18,9 @@ const collection = db.collection('itens');
 console.log("Banco de dados conectado com sucesso");
 
 const app = express();
+
+//Habilita o Cors
+app.use(cors());
 
 // O que vier no Body da requisição, está em JSON
 app.use(express.json());
