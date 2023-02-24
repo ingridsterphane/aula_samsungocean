@@ -5,7 +5,7 @@ const cors = require("cors");
 //localhotst ou 127.0.0.1
 // const DB_URL="mongodb://127.0.0.1:27017";
 const DB_URL=
-"mongodb+srv://admin:dq3UVgcMR9LHHtcy@cluster0.6dchbcu.mongodb.net";
+"mongodb+srv://admin:<D5VjjcfINVTc0Fpm>@cluster0.9ku4h3n.mongodb.net";
 const DB_NAME="ocean-bancodados-09-02-2023";
 
 async function main() {
