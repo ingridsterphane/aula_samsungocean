@@ -33,7 +33,7 @@ import { useEffect, useState } from "react";
     // Realizar requisição para backend obtendo a lista de itens
     async function realizarRequisicao() {
     //const url="http:localhost:3000/item";
-    const url = "https://estudos-full-stack.onrender.com";
+    const url = "https://estudos-full-stack.onrender.com/item";
     const response = await fetch(url);
     const data = await response.json();
 
