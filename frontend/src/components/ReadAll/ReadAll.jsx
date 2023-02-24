@@ -13,13 +13,13 @@ import { useEffect, useState } from "react";
         _id: "63f773690f5f0e919a375ab0",
         nome: "Jk",
         imagemUrl:"https://akamai.sscdn.co/uploadfile/letras/fotos/1/1/f/d/11fd2af330736cb78d5d0a048c1ea88b.jpg",
-        tags: ["Idol: lindo", "Amo: ele"]
+        tags: ["Idol: lindo", "Amo: demais"]
     },
     {
         _id:"63f7738b0f5f0e919a375ab1",
         nome: "Jin",
         imagemUrl:"https://img.etimg.com/thumb/msid-94131512,width-1600,height-1600,imgsize-40864,overlay-etpanache/photo.jpg",
-        tags: ["Idol: lindo", "Amo: ele"]
+        tags: ["Idol: lindo", "Amo: amar"]
     },
 
   ];
